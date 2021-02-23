@@ -1,3 +1,15 @@
+# Aprendizado
+### Dia 1
+No primeiro dia, foi explicado o conceito de como funcionam as aplicações REST que consomem os dados de uma API. Uma aplicação desenvolvida dessa maneira facilita a criação do frontend em plataformas diferentes e com tecnologias frontend diferentes tanto
+para Web, como também para mobile: Android e Ios.
+
+A tecnologia para o desenvolvimento web frontend utilizada para construir esse projeto foi o React. Uma das coisas que aprendi nesse primeiro dia, foi a possibilidade de obter as propriedades children dos componentes do React.
+
+### Dia 2
+No dia 2, foi apresentado os conceitos de como funcionam o framework Next.js que é utilizado para renderizar as páginas react no lado do servidor primeiro, antes de disponibilizar para o usuário. Isso facilita muito a otimização do SEO (Search Engine Optimization (otimização para mecanismos de busca)) além de tornar a apresentação muito mais rápida para o usuário.
+
+Nesse dia foi possível implementar, inicialmente, o mecanismo contador do projeto, que a partir de determinados minutos, a página venha ser atualizada segundo por segundo, durante a contagem regressiva.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
