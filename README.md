@@ -10,6 +10,15 @@ No dia 2, foi apresentado os conceitos de como funcionam o framework Next.js que
 
 Nesse dia foi possível implementar, inicialmente, o mecanismo contador do projeto, que a partir de determinados minutos, a página venha ser atualizada segundo por segundo, durante a contagem regressiva.
 
+### Dia 3
+Esse dia, para mim, foi o mais importante, porque aprendi algo fundamental no React que é a comunicação entre componentes (separados), como eles se comunicam entre si. Essa problema era sempre onde eu não sabia o que fazer, mas com o context Api do react foi possível solucionar de forma simples o contexto de desafios dessa aplicação.
+
+Além disso, foi possível entender como funciona os React fragments (que são divs que não são adicionados na DOM) e condicionais do React para alternar entre componentes dependendo do estado.
+
+O cálculo para lidar com o nível atual do usuário foi sensacional também.
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
