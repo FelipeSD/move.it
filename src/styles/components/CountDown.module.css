@@ -63,6 +63,13 @@
 .countDownButton:not(:disabled):hover{
     background: var(--blue-dark);
 }
+.countDownButton:disabled{
+    background: var(--white);
+    color: var(--text);
+    cursor: not-allowed;
+
+    border-bottom: 3px solid var(--green);
+}
 
 .countDownButtonActive {
     background: var(--white);
@@ -72,9 +79,6 @@
     background: var(--red);
     color: var(--white);
 }
-
-.countDownButton:disabled{
-    background: var(--white);
-    color: var(--text);
-    cursor: not-allowed;
+.countDownButtonActive:not(:disabled):hover img{
+    filter: brightness(0) invert(1);
 }

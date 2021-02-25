@@ -48,8 +48,8 @@ export function CountDown(){
                             type="button" 
                             className={`${styles.countDownButton} ${styles.countDownButtonActive}`}>
 
-                            Abandonar ciclo  
-
+                            Abandonar ciclo
+                            <img src="icons/close.svg" alt="close" />
                         </button>
                     ) : (
 
