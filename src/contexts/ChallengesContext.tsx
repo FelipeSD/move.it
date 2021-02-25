@@ -50,7 +50,7 @@ export function ChallengesProvider({children}: ChallengesProviderProps){
 
         setActiveChallenge(challenge);
 
-        // todo arquivo da pasta public é possível utilizar sem color todo caminho, por toda aplicação.
+        // arquivo da pasta public é possível utilizar sem colocar o caminho inteiro, por toda aplicação.
         new Audio('/notification.mp3').play();
 
         if(Notification.permission === 'granted'){
