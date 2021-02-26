@@ -1,12 +1,12 @@
-# Aprendizado
+# Meu registro de aprendizagem
 ### Dia 1
 No primeiro dia, foi explicado o conceito de como funcionam as aplicações REST que consomem os dados de uma API. Uma 
 aplicação desenvolvida dessa maneira facilita a criação do frontend em plataformas diferentes e com tecnologias frontend 
 diferentes tanto
 para Web, como também para mobile: Android e Ios.
 
-A tecnologia para o desenvolvimento web frontend utilizada para construir esse projeto foi o React. Uma das coisas que 
-aprendi nesse primeiro dia, foi a possibilidade de obter as propriedades children dos componentes do React.
+A tecnologia para o desenvolvimento de aplicações ‘web’ frontend utilizada para construir esse projeto foi o React. 
+Uma das coisas que aprendi nesse primeiro dia, foi a possibilidade de obter as propriedades children dos componentes do React.
 
 ### Dia 2
 No dia 2, foi apresentado os conceitos de como funcionam o framework Next.js que é utilizado para renderizar as páginas 
@@ -19,18 +19,23 @@ a página venha ser atualizada segundo por segundo, durante a contagem regressiv
 
 ### Dia 3
 Esse dia, para mim, foi o mais importante, porque aprendi algo fundamental no React que é a comunicação entre componentes 
-(separados), como eles se comunicam entre si. Esse problema era sempre onde eu não sabia o que fazer, mas com o context 
+(separados), como eles se comunicam entre si. Esse problema era sempre onde eu não sabia o que fazer, mas com o 'context' 
 Api do React foi possível solucionar de forma simples o contexto de desafios dessa aplicação.
 
-Além disso, foi possível entender como funciona os React fragments (que são divs que não são adicionados na DOM) e 
+Além disso, foi possível entender como funciona os React fragments (que são divs que não são adicionados na 'DOM') e 
 condicionais do React para alternar entre componentes dependendo do estado.
 
 O cálculo para lidar com o nível atual do utilizador foi sensacional também.
 
 ### Dia 4
+No dia 4, foi criado mais um context API para o componente Countdown, identificando o melhor local para se utilizar 
+múltiplos contextos dentro da aplicação. Aprendi sobre como gerar notificações pelo navegador e utilizar Audio API.
 
-No dia 4, foi criado mais um context API para o componente Countdown, identificando o melhor local para se utilizar múltiplos
-contextos dentro da aplicação. Aprendi sobre como gerar notificações pelo navegador e utilizar Audio API.
+## Dia 5
+No último dia do NLW #4 foi trabalhado o conceito e uso de ‘cookies’ pela dependência js-cookie, para armazenar os dados
+da aplicação (mesmo que por breve tempo). Aprendi como se usa o getServerSideProps do Next.js, que atua como intermediador
+entre back-end e front-end, onde é possível manipular quais dados serão repassados do Next.js para a ‘interface’ em React.
+Neste dia foi possível também, compreender os conceitos de Componentes de modal tradicionais no React (sem uso de biblioteca).
 
 ---
 
