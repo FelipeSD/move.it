@@ -1,5 +1,9 @@
+.main {
+    display: flex;
+}
+
 .container {
-    height: 100vh;
+    min-height: 100vh;
     max-width: 992px;
     margin: 0 auto;
     padding: 2.5rem 2rem;
@@ -19,4 +23,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 6.25rem;
     align-content: center;
+}
+
+@media (max-width: 700px){
+    .container section {
+        grid-template-columns: unset;
+        gap: unset;
+
+    }
+
+    .leftContainer, .rightContainer {
+        padding-bottom: unset;
+    }
 }

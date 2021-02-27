@@ -38,6 +38,7 @@ export function CountDown(){
                     className={`${styles.countDownButton}`}>
                     
                     Ciclo encerrado
+                    <img src="icons/check-circle.svg" alt="terminado" />
                 </button>
             ) : (
                 // REACT FRAGMENT
@@ -49,7 +50,7 @@ export function CountDown(){
                             className={`${styles.countDownButton} ${styles.countDownButtonActive}`}>
 
                             Abandonar ciclo
-                            <img src="icons/close.svg" alt="close" />
+                            <img src="icons/close.svg" alt="fechar" />
                         </button>
                     ) : (
 
