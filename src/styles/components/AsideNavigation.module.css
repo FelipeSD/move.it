@@ -20,12 +20,20 @@
     width: 100%;
 }
 .navbarContainer ul li{
+    position: relative;
     height: 56px;
-
     list-style-type: none;
+
+    transition: all .2s;
 }
-.navbarContainer ul li:hover {
-    border-left: .4rem solid var(--blue);
+.navbarContainer ul li:hover:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: .2rem solid var(--blue);
 }
 
 .navbarContainer ul li img {
