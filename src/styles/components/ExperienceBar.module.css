@@ -27,5 +27,24 @@ span.currentExperience {
     position: absolute;
     top: 12px;
     transform: translateX(-50%);
+
+    background: var(--blue);
+    color: var(--white);
+    padding: .2rem;
+    border-radius: 5px;
+}
+
+span.currentExperience:after {
+    content: '';
+    position: absolute;
+    left: 1.3rem;
+    top: -0.3rem;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--blue);
+    clear: both;
+    transform: translateX(-50%);
 }
 
