@@ -18,6 +18,7 @@ interface HomeProps {
 	name: string,
 	url: string,
 	level: number,
+	defaultTime: number,
 	currentExperience: number
 	challengesCompleted: number
 }
@@ -28,6 +29,7 @@ export default function Home(props: HomeProps) {
 			name={props.name}
 			url={props.url}
 			level={props.level}
+			defaultTime={props.defaultTime}
 			currentExperience={props.currentExperience}
 			challengesCompleted={props.challengesCompleted}
 		>
@@ -63,11 +65,12 @@ export default function Home(props: HomeProps) {
 // tudo que está dentro dessa função executa no servidor Node
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	// aqui pode ser feito uma chamada api para buscar algum tipo de dado
-
+	console.log(ctx.req.cookies)
 	const  {
 		name,
 		url,
 		level,
+		defaultTime,
 		currentExperience,
 		challengesCompleted
 	} = ctx.req.cookies;
@@ -77,6 +80,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			name,
 			url,
 			level: Number(level),
+			defaultTime: Number(defaultTime),
 			currentExperience: Number(currentExperience),
 			challengesCompleted: Number(challengesCompleted)
 		}

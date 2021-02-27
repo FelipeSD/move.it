@@ -53,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		props: {
 			"name": name,
 			"url": url,
-			"defaultTime": defaultTime
+			"defaultTime": Number(defaultTime)
 		}
 	}
 }

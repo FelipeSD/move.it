@@ -47,6 +47,7 @@ export function ChallengesProvider({
         children,
         ...rest
 }: ChallengesProviderProps){
+    console.log("provider", rest.defaultTime);
     const [name, setName] = useState(rest.name ?? 'Unnamed');
     const [url, setUrl] = useState(rest.url ?? 'http://github.com/FelipeSD.png');
     const [defaultTime, setDefaultTime] = useState(rest.defaultTime ?? 25*60);
@@ -65,6 +66,7 @@ export function ChallengesProvider({
     }, []);
 
     useEffect(()=>{
+        console.log("cookie", defaultTime)
         Cookies.set("name", String(name));
         Cookies.set("url", String(url));
         Cookies.set("level", String(level));
@@ -89,6 +91,7 @@ export function ChallengesProvider({
     }
 
     function changeDefaultTime(newDefaultTime: number) {
+        console.log("change time", newDefaultTime, defaultTime)
         setDefaultTime(newDefaultTime);
     }
 
