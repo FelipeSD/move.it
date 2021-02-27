@@ -2,8 +2,6 @@ import {createContext, useState, ReactNode, useEffect} from 'react';
 import Cookies from 'js-cookie';
 import challenges from '../../challenges.json';
 import {LevelUpModal} from "../components/LevelUpModal";
-import {use} from "ast-types";
-import {func} from "prop-types";
 
 interface Challenge {
     type: 'body' | 'eye';
@@ -13,17 +11,27 @@ interface Challenge {
 
 interface ChallengesProviderProps {
     children: ReactNode;
-    level: number,
-    currentExperience: number
-    challengesCompleted: number
+    name: string;
+    url: string;
+    defaultTime?: number,
+    level?: number,
+    currentExperience?: number
+    challengesCompleted?: number
 }
 
 interface ChallengesContextData {
+    name: string;
     level: number;
+    defaultTime: number;
+    url: string;
     currentExperience: number;
     challengesCompleted: number;
     activeChallenge: Challenge;
     experienceToNextLevel: number;
+
+    changeName: (string)=>void;
+    changeUrl: (string)=>void;
+    changeDefaultTime: (number)=>void;
     levelUp: ()=>void;
     startNewChallenge: ()=>void;
     resetChallenge: ()=>void;
@@ -39,6 +47,9 @@ export function ChallengesProvider({
         children,
         ...rest
 }: ChallengesProviderProps){
+    const [name, setName] = useState(rest.name ?? 'Unnamed');
+    const [url, setUrl] = useState(rest.url ?? 'http://github.com/FelipeSD.png');
+    const [defaultTime, setDefaultTime] = useState(rest.defaultTime ?? 25*60);
     const [level, setLevel] = useState(rest.level ?? 1);
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
@@ -54,11 +65,32 @@ export function ChallengesProvider({
     }, []);
 
     useEffect(()=>{
+        Cookies.set("name", String(name));
+        Cookies.set("url", String(url));
         Cookies.set("level", String(level));
+        Cookies.set("defaultTime", String(defaultTime));
         Cookies.set("currentExperience", String(currentExperience));
         Cookies.set("challengesCompleted", String(challengesCompleted));
+    }, [
+        name,
+        url,
+        level,
+        defaultTime,
+        currentExperience,
+        challengesCompleted
+    ]);
 
-    }, [level, currentExperience, challengesCompleted]);
+    function changeName(newName: string){
+        setName(newName);
+    }
+
+    function changeUrl(newUrl: string) {
+        setUrl(newUrl);
+    }
+
+    function changeDefaultTime(newDefaultTime: number) {
+        setDefaultTime(newDefaultTime);
+    }
 
     function levelUp(){
         setLevel(level+1);
@@ -111,13 +143,19 @@ export function ChallengesProvider({
     return (
         <ChallengesContext.Provider 
             value={{
-                level, 
-                levelUp, 
-                currentExperience, 
+                name,
+                url,
+                level,
+                defaultTime,
+                currentExperience,
                 challengesCompleted,
-                startNewChallenge,
                 activeChallenge,
                 experienceToNextLevel,
+                changeName,
+                changeUrl,
+                changeDefaultTime,
+                levelUp,
+                startNewChallenge,
                 resetChallenge,
                 completeChallenge,
                 closeLevelUpModal

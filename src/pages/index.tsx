@@ -15,6 +15,8 @@ import {ChallengesProvider} from "../contexts/ChallengesContext";
 import {AsideNavigation} from "../components/AsideNavigation";
 
 interface HomeProps {
+	name: string,
+	url: string,
 	level: number,
 	currentExperience: number
 	challengesCompleted: number
@@ -23,6 +25,8 @@ interface HomeProps {
 export default function Home(props: HomeProps) {
 	return (
 		<ChallengesProvider
+			name={props.name}
+			url={props.url}
 			level={props.level}
 			currentExperience={props.currentExperience}
 			challengesCompleted={props.challengesCompleted}
@@ -60,10 +64,18 @@ export default function Home(props: HomeProps) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	// aqui pode ser feito uma chamada api para buscar algum tipo de dado
 
-	const  {level, currentExperience, challengesCompleted} = ctx.req.cookies;
+	const  {
+		name,
+		url,
+		level,
+		currentExperience,
+		challengesCompleted
+	} = ctx.req.cookies;
 
 	return {
 		props: {
+			name,
+			url,
 			level: Number(level),
 			currentExperience: Number(currentExperience),
 			challengesCompleted: Number(challengesCompleted)

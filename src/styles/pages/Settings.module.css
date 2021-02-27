@@ -1,0 +1,41 @@
+.main{
+    display: flex;
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--blue);
+    background-image: url("../../../public/logo-background.svg");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+
+    padding: 2.5rem 2rem;
+}
+
+/*CARD COMPONENT*/
+.card {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px .875rem 2px rgba(41,48,66,.05);
+    word-wrap: break-word;
+
+    max-width: 500px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cardHeader, .cardBody{
+    padding: 1rem;
+}
+
+.cardHeader{
+    border-bottom: 1px solid var(--gray-line);
+}
+
+.cardBody{
+    margin: 1rem 0;
+}
