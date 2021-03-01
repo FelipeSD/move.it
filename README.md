@@ -22,7 +22,7 @@ Esse dia, para mim, foi o mais importante, porque aprendi algo fundamental no Re
 (separados), como eles se comunicam entre si. Esse problema era sempre onde eu não sabia o que fazer, mas com o 'context' 
 Api do React foi possível solucionar de forma simples o contexto de desafios dessa aplicação.
 
-Além disso, foi possível entender como funciona os React fragments (que são divs que não são adicionados na 'DOM') e 
+Além disso, foi possível entender como funciona os React fragments (que são como 'tags' que não são adicionados na 'DOM') e 
 condicionais do React para alternar entre componentes dependendo do estado.
 
 O cálculo para lidar com o nível atual do utilizador foi sensacional também.
