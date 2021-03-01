@@ -38,9 +38,7 @@ export default function Home(props: HomeProps) {
 			</Head>
 
 			<main className={styles.main}>
-				<aside>
-					<AsideNavigation />
-				</aside>
+				<AsideNavigation />
 				<article className={styles.container}>
 					<ExperienceBar />
 
@@ -77,8 +75,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 	return {
 		props: {
-			name,
-			url,
+			"name": name || null,
+			"url": url || null,
 			level: Number(level),
 			defaultTime: Number(defaultTime),
 			currentExperience: Number(currentExperience),

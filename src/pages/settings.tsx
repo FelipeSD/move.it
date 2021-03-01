@@ -24,9 +24,7 @@ export default function Settings(props: SettingsProps){
 				<title>Configurações | move.it</title>
 			</Head>
 			<main className={styles.main}>
-				<aside>
-					<AsideNavigation />
-				</aside>
+				<AsideNavigation />
 				<article className={styles.container}>
 					<section className={styles.card}>
 						<div className={styles.cardHeader}>

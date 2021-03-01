@@ -1,21 +1,32 @@
 import styles from '../styles/components/AsideNavigation.module.css';
+import {useState} from "react";
 
 export function AsideNavigation(){
+	const [isOpen, setIsOpen] = useState(false);
+
 	return (
-		<nav className={styles.navbarContainer}>
-			<img src="logo-short.svg" alt="logo" />
-			<ul>
-				<li>
-					<a href="/">
-						<img src="icons/home.svg" alt="home" />
-					</a>
-				</li>
-				<li>
-					<a href="/settings">
-						<img src="icons/cog.svg" alt="cog" />
-					</a>
-				</li>
-			</ul>
-		</nav>
+		<aside className={styles.asideContainer}>
+			<button className={styles.hamburger} onClick={()=>setIsOpen(!isOpen)}>
+				<img src="icons/hamburger.svg" alt="hamburger" />
+			</button>
+			<nav
+				className={styles.navbarContainer}
+				style={isOpen ? {margin: "-112px"} : null}
+			>
+				<img src="logo-short.svg" alt="logo" />
+				<ul>
+					<li>
+						<a href="/">
+							<img src="icons/home.svg" alt="home" />
+						</a>
+					</li>
+					<li>
+						<a href="/settings">
+							<img src="icons/cog.svg" alt="cog" />
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
 	)
 }

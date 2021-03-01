@@ -9,6 +9,25 @@
     height: 100vh;
 
     background: linear-gradient(var(--white), var(--background));
+    z-index: 1;
+
+    transition: margin .5s;
+}
+
+.navbarContainer .asideContainer{
+    position: relative;
+}
+
+.asideContainer .hamburger{
+    z-index: 2;
+    position: fixed;
+    width: 30px;
+    font-size: 0;
+
+    background: none;
+    border: none;
+
+    top: 0;
 }
 
 .navbarContainer > img{
@@ -34,6 +53,8 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border: .2rem solid var(--blue);
+
+    background-color: var(--blue);
 }
 
 .navbarContainer ul li img {
@@ -50,4 +71,10 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+}
+
+@media (min-width: 720px) {
+    .asideContainer .hamburger {
+        display: none;
+    }
 }
