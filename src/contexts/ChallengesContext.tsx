@@ -48,7 +48,7 @@ export function ChallengesProvider({
         ...rest
 }: ChallengesProviderProps){
     const [name, setName] = useState(rest.name ?? 'Unnamed');
-    const [url, setUrl] = useState(rest.url ?? 'http://github.com/FelipeSD.png');
+    const [url, setUrl] = useState(rest.url ?? 'icons/avatar.svg');
     const [defaultTime, setDefaultTime] = useState(rest.defaultTime ?? 25*60);
     const [level, setLevel] = useState(rest.level ?? 1);
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);

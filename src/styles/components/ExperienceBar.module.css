@@ -46,5 +46,6 @@ span.currentExperience:after {
     border-bottom: 10px solid var(--blue);
     clear: both;
     transform: translateX(-50%);
+    z-index: -1;
 }
 

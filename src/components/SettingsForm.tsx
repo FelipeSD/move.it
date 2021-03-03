@@ -3,6 +3,7 @@ import InputMask from 'react-input-mask';
 import styles from "../styles/components/SettingsForm.module.css";
 import {InputAdornment, TextField} from "@material-ui/core";
 import {ChallengesContext} from "../contexts/ChallengesContext";
+import {number} from "prop-types";
 
 export function SettingsForm(){
 	const {
@@ -16,11 +17,11 @@ export function SettingsForm(){
 		changeDefaultTime
 	} = useContext(ChallengesContext);
 
-	const [newName, setNewName] = useState(name);
-	const [newUrl, setNewUrl] = useState(url);
-	const [newDefaultTime, setNewDefaultTime] = useState(defaultTime);
+	const [newName, setNewName] = useState<string>(name);
+	const [newUrl, setNewUrl] = useState<string>(url);
+	const [newDefaultTime, setNewDefaultTime] = useState<number>(defaultTime);
 
-	const [hasChanged, setHasChanged] = useState(false);
+	const [hasChanged, setHasChanged] = useState<boolean>(false);
 
 	useEffect(()=>{
 		setHasChanged(true);
@@ -74,8 +75,8 @@ export function SettingsForm(){
 			<div className={styles.formGroup}>
 				<InputMask
 					mask="9999"
-				    value={newDefaultTime}
-				    onChange={(e)=>setNewDefaultTime(e.target.value)}
+				    value={String(newDefaultTime)}
+				    onChange={(e)=>setNewDefaultTime(e.target.value.trim())}
 				>
 					{() => <TextField
 						id={"inputTime"}

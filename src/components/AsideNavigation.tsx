@@ -1,5 +1,5 @@
 import styles from '../styles/components/AsideNavigation.module.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export function AsideNavigation(){
 	const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ export function AsideNavigation(){
 			</button>
 			<nav
 				className={styles.navbarContainer}
-				style={isOpen ? {margin: "-112px"} : null}
+				style={isOpen ? {marginLeft: "unset"} : {marginLeft: "-112px"}}
 			>
 				<img src="logo-short.svg" alt="logo" />
 				<ul>
