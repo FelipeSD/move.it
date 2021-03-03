@@ -75,7 +75,7 @@
 
 @media (min-width: 720px) {
     .navbarContainer {
-        margin-left: unset;
+        margin-left: unset!important;
     }
 
     .asideContainer .hamburger {
