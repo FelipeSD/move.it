@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import {GetServerSideProps} from 'next';
+import {GetServerSideProps, GetStaticProps, GetStaticPropsContext} from 'next';
 
 
 import { CompletedChallenges } from "../components/CompletedChallenges";
@@ -11,7 +11,6 @@ import { Profile } from "../components/Profile";
 
 import styles from '../styles/pages/Home.module.css';
 import {CountDownProvider} from "../contexts/CountDownContext";
-import {ChallengesProvider} from "../contexts/ChallengesContext";
 import {AsideNavigation} from "../components/AsideNavigation";
 
 interface HomeProps {
@@ -25,62 +24,49 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
 	return (
-		<ChallengesProvider
-			name={props.name}
-			url={props.url}
-			level={props.level}
-			defaultTime={props.defaultTime}
-			currentExperience={props.currentExperience}
-			challengesCompleted={props.challengesCompleted}
-		>
+		<main className={styles.main}>
 			<Head>
 				<title>Início | move.it</title>
 			</Head>
-
-			<main className={styles.main}>
-				<AsideNavigation />
-				<article className={styles.container}>
-					<ExperienceBar />
-
-					<CountDownProvider>
-						<section>
-							<div className={styles.leftContainer}>
-								<Profile />
-								<CompletedChallenges />
-								<CountDown />
-							</div>
-							<div className={styles.rightContainer}>
-								<ChallengeBox />
-							</div>
-						</section>
-					</CountDownProvider>
-				</article>
-			</main>
-		</ChallengesProvider>
+			<article className={styles.container}>
+				<ExperienceBar />
+				<CountDownProvider>
+					<section>
+						<div className={styles.leftContainer}>
+							<Profile />
+							<CompletedChallenges />
+							<CountDown />
+						</div>
+						<div className={styles.rightContainer}>
+							<ChallengeBox />
+						</div>
+					</section>
+				</CountDownProvider>
+			</article>
+		</main>
 	)
 }
 
 // tudo que está dentro dessa função executa no servidor Node
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
 	// aqui pode ser feito uma chamada api para buscar algum tipo de dado
-	console.log(ctx.req.cookies)
-	const  {
-		name,
-		url,
-		level,
-		defaultTime,
-		currentExperience,
-		challengesCompleted
-	} = ctx.req.cookies;
+	// const  {
+	// 	name,
+	// 	url,
+	// 	level,
+	// 	defaultTime,
+	// 	currentExperience,
+	// 	challengesCompleted
+	// } = ctx.req.cookies;
 
 	return {
 		props: {
-			"name": name || null,
-			"url": url || null,
-			level: Number(level),
-			defaultTime: Number(defaultTime),
-			currentExperience: Number(currentExperience),
-			challengesCompleted: Number(challengesCompleted)
+			// "name": name || null,
+			// "url": url || null,
+			// level: Number(level),
+			// defaultTime: Number(defaultTime),
+			// currentExperience: Number(currentExperience),
+			// challengesCompleted: Number(challengesCompleted)
 		}
 	}
 }

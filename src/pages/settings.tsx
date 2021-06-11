@@ -1,5 +1,5 @@
 import Head from "next/head";
-import {GetServerSideProps} from "next";
+import {GetServerSideProps, GetStaticProps, GetStaticPropsContext} from "next";
 
 import {AsideNavigation} from "../components/AsideNavigation";
 import {SettingsForm} from "../components/SettingsForm";
@@ -15,43 +15,29 @@ interface SettingsProps {
 
 export default function Settings(props: SettingsProps){
 	return (
-		<ChallengesProvider
-			name={props.name}
-			url={props.url}
-			defaultTime={props.defaultTime}
-		>
+		<main className={styles.main}>
 			<Head>
 				<title>Configurações | move.it</title>
 			</Head>
-			<main className={styles.main}>
-				<AsideNavigation />
-				<article className={styles.container}>
-					<section className={styles.card}>
-						<div className={styles.cardHeader}>
-							<h1>Configurações</h1>
-						</div>
-						<div className={styles.cardBody}>
-							<SettingsForm />
-						</div>
-					</section>
-				</article>
-			</main>
-		</ChallengesProvider>
+			<article className={styles.container}>
+				<section className={styles.card}>
+					<div className={styles.cardHeader}>
+						<h1>Configurações</h1>
+					</div>
+					<div className={styles.cardBody}>
+						<SettingsForm />
+					</div>
+				</section>
+			</article>
+		</main>
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const  {
-		name,
-		url,
-		defaultTime
-	} = ctx.req.cookies;
+export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
 
 	return {
 		props: {
-			"name": name,
-			"url": url,
-			"defaultTime": Number(defaultTime)
+
 		}
 	}
 }

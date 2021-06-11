@@ -3,16 +3,13 @@ import InputMask from 'react-input-mask';
 import styles from "../styles/components/SettingsForm.module.css";
 import {InputAdornment, TextField} from "@material-ui/core";
 import {ChallengesContext} from "../contexts/ChallengesContext";
-import {number} from "prop-types";
 
 export function SettingsForm(){
 	const {
 		name,
 		changeName,
-
 		url,
 		changeUrl,
-
 		defaultTime,
 		changeDefaultTime
 	} = useContext(ChallengesContext);
@@ -62,7 +59,7 @@ export function SettingsForm(){
 				<TextField
 					id="inputURL"
 					label="URL"
-					type="url"
+					type="text"
 					placeholder="Digite a URL da imagem"
 
 					variant="outlined"

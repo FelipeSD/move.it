@@ -49,7 +49,7 @@ export function ChallengesProvider({
 }: ChallengesProviderProps){
     const [name, setName] = useState(rest.name ?? 'Unnamed');
     const [url, setUrl] = useState(rest.url ?? 'icons/avatar.svg');
-    const [defaultTime, setDefaultTime] = useState(rest.defaultTime ?? 25*60);
+    const [defaultTime, setDefaultTime] = useState(rest.defaultTime ?? 6);
     const [level, setLevel] = useState(rest.level ?? 1);
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
@@ -108,13 +108,15 @@ export function ChallengesProvider({
         setActiveChallenge(challenge);
 
         // arquivo da pasta public é possível utilizar sem colocar o caminho inteiro, por toda aplicação.
-        new Audio('/notification.mp3').play();
+        new Audio('/notification.mp3').play().then(()=>{
 
-        if(Notification.permission === 'granted'){
-            new Notification('Novo desafio ', {
-                body: `Valendo ${challenge.amount}xp!`
-            });
-        }
+            if(Notification.permission === 'granted'){
+                new Notification('Novo desafio ', {
+                    body: `Valendo ${challenge.amount}xp!`
+                });
+            }
+
+        });
     }
 
     function resetChallenge(){
