@@ -47,7 +47,7 @@ export default function Home(props: HomeProps) {
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
 	// aqui pode ser feito uma chamada api para buscar algum tipo de dado
 	const  {
 		name,

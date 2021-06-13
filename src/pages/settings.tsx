@@ -31,7 +31,7 @@ export default function Settings(props: SettingsProps){
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
 	const  {
 		name,
 		url,
