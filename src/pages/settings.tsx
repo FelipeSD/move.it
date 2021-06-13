@@ -1,9 +1,7 @@
 import Head from "next/head";
-import {GetServerSideProps, GetStaticProps, GetStaticPropsContext} from "next";
+import {GetServerSideProps, GetServerSidePropsContext} from "next";
 
-import {AsideNavigation} from "../components/AsideNavigation";
 import {SettingsForm} from "../components/SettingsForm";
-import {ChallengesProvider} from "../contexts/ChallengesContext";
 
 import styles from '../styles/pages/Settings.module.css';
 
@@ -33,11 +31,24 @@ export default function Settings(props: SettingsProps){
 	)
 }
 
-export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
+	const  {
+		name,
+		url,
+		level,
+		defaultTime,
+		currentExperience,
+		challengesCompleted
+	} = ctx.req.cookies;
 
 	return {
 		props: {
-
+			"name": name || null,
+			"url": url || null,
+			level: Number(level),
+			defaultTime: Number(defaultTime),
+			currentExperience: Number(currentExperience),
+			challengesCompleted: Number(challengesCompleted)
 		}
 	}
 }

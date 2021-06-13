@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import {GetServerSideProps, GetStaticProps, GetStaticPropsContext} from 'next';
+import {GetServerSideProps, GetServerSidePropsContext, GetStaticProps, GetStaticPropsContext} from 'next';
 
 
 import { CompletedChallenges } from "../components/CompletedChallenges";
@@ -47,26 +47,25 @@ export default function Home(props: HomeProps) {
 	)
 }
 
-// tudo que está dentro dessa função executa no servidor Node
-export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
 	// aqui pode ser feito uma chamada api para buscar algum tipo de dado
-	// const  {
-	// 	name,
-	// 	url,
-	// 	level,
-	// 	defaultTime,
-	// 	currentExperience,
-	// 	challengesCompleted
-	// } = ctx.req.cookies;
+	const  {
+		name,
+		url,
+		level,
+		defaultTime,
+		currentExperience,
+		challengesCompleted
+	} = ctx.req.cookies;
 
 	return {
 		props: {
-			// "name": name || null,
-			// "url": url || null,
-			// level: Number(level),
-			// defaultTime: Number(defaultTime),
-			// currentExperience: Number(currentExperience),
-			// challengesCompleted: Number(challengesCompleted)
+			"name": name || null,
+			"url": url || null,
+			level: Number(level),
+			defaultTime: Number(defaultTime),
+			currentExperience: Number(currentExperience),
+			challengesCompleted: Number(challengesCompleted)
 		}
 	}
 }
